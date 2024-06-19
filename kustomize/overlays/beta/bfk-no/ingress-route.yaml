@@ -1,0 +1,13 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: fint-core-consumer-ressurs-kodeverk
+spec:
+  entryPoints:
+    - web
+  routes:
+    - match: "Host(`beta.felleskomponent.no`) && (PathPrefix( `/ressurs/kodeverk`) && Headers(`x-org-id`, `bfk.no`))"
+      kind: Rule
+      services:
+        - name: fint-core-consumer-ressurs-kodeverk
+          port: 8080

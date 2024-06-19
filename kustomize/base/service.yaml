@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: fint-core-consumer-ressurs-kodeverk
+spec:
+  ports:
+    - port: 8080
+  type: ClusterIP
