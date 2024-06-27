@@ -24,6 +24,6 @@ public class PlattformController extends ConsumerRestController<PlattformResourc
 
     @PostConstruct
     private void registerIdentificators() {
-        super.registerIdenficatorHandler("systemId", PlattformResource::getSystemId);
+        super.registerIdenficatorHandler("systemid", PlattformResource::getSystemId);
     }
 }

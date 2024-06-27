@@ -24,6 +24,6 @@ public class BrukertypeController extends ConsumerRestController<BrukertypeResou
 
     @PostConstruct
     private void registerIdentificators() {
-        super.registerIdenficatorHandler("systemId", BrukertypeResource::getSystemId);
+        super.registerIdenficatorHandler("systemid", BrukertypeResource::getSystemId);
     }
 }

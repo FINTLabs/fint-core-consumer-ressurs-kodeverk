@@ -24,6 +24,6 @@ public class HandhevingstypeController extends ConsumerRestController<Handheving
 
     @PostConstruct
     private void registerIdentificators() {
-        super.registerIdenficatorHandler("systemId", HandhevingstypeResource::getSystemId);
+        super.registerIdenficatorHandler("systemid", HandhevingstypeResource::getSystemId);
     }
 }

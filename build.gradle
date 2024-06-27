@@ -1,5 +1,5 @@
 plugins {
-    id 'org.springframework.boot' version '3.3.0'
+    id 'org.springframework.boot' version '3.3.1'
     id 'io.spring.dependency-management' version '1.1.5'
     id 'java'
     id 'groovy'
@@ -27,7 +27,7 @@ dependencies {
 
     implementation "no.fint:fint-ressurs-resource-model-java:${apiVersion}"
     implementation 'no.fintlabs:fint-core-resource-server-security:2.0.0'
-    implementation 'no.fintlabs:fint-core-consumer-shared:2.4.0-rc-1'
+    implementation 'no.fintlabs:fint-core-consumer-shared:2.4.0'
 
     implementation 'com.google.guava:guava:33.2.1-jre'
     implementation 'org.apache.commons:commons-lang3:3.14.0'

@@ -24,6 +24,6 @@ public class LisensmodellController extends ConsumerRestController<LisensmodellR
 
     @PostConstruct
     private void registerIdentificators() {
-        super.registerIdenficatorHandler("systemId", LisensmodellResource::getSystemId);
+        super.registerIdenficatorHandler("systemid", LisensmodellResource::getSystemId);
     }
 }
