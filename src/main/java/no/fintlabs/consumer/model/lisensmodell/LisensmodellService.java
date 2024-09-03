@@ -40,11 +40,11 @@ public class LisensmodellService extends CacheService<LisensmodellResource> {
 
     @PostConstruct
     private void registerKafkaListener() {
-        long retention = entityKafkaConsumer.registerListener(LisensmodellResource.class, this::addResourceToCache);
-        getCache().setRetentionPeriodInMs(retention);
+        entityKafkaConsumer.registerListener(LisensmodellResource.class, this::addResourceToCache);
     }
 
     private void addResourceToCache(ConsumerRecord<String, LisensmodellResource> consumerRecord) {
+        updateRetensionTime(consumerRecord.headers().lastHeader("topic-retension-time"));
         this.eventLogger.logDataRecieved();
         if (consumerRecord.value() == null) {
             getCache().remove(consumerRecord.key());

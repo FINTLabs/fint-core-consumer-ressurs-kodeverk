@@ -40,11 +40,11 @@ public class BrukertypeService extends CacheService<BrukertypeResource> {
 
     @PostConstruct
     private void registerKafkaListener() {
-        long retention = entityKafkaConsumer.registerListener(BrukertypeResource.class, this::addResourceToCache);
-        getCache().setRetentionPeriodInMs(retention);
+        entityKafkaConsumer.registerListener(BrukertypeResource.class, this::addResourceToCache);
     }
 
     private void addResourceToCache(ConsumerRecord<String, BrukertypeResource> consumerRecord) {
+        updateRetensionTime(consumerRecord.headers().lastHeader("topic-retension-time"));
         this.eventLogger.logDataRecieved();
         if (consumerRecord.value() == null) {
             getCache().remove(consumerRecord.key());
